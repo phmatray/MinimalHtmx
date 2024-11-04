@@ -1,0 +1,31 @@
+@using Microsoft.AspNetCore.Http.HttpResults
+@implements StaticWebApp.Components.IHasEndpoints
+
+<div class="counter">
+  <p role="status">Current count: @State.Value</p>
+  <button 
+    hx-post="/count"
+    hx-target="closest .counter"
+    hx-swap="outerHTML">
+    Click me
+  </button>
+</div>
+
+@code {
+  
+  [Parameter, EditorRequired]
+  public HxCounterState State { get; set; } = new();
+
+  public static void MapEndpoints(WebApplication app)
+  {
+    app.MapPost("/count",
+      (HxCounterState state) =>
+      {
+        state.Increment();
+        return new RazorComponentResult<HxCounter>(
+          new { State = state }
+        );
+      });
+  }
+
+}
