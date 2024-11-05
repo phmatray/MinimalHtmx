@@ -1,0 +1,14 @@
+@page "/counter"
+@using StaticWebApp.Store
+@inject AppState AppState
+
+<div class="counter">
+  <p role="status">Current count: @AppState.Count</p>
+  <button 
+    hx-post="@HxCounterEndpoint"
+    hx-target="closest .counter"
+    hx-swap="outerHTML"
+    class="btn btn-primary">
+    Click me
+  </button>
+</div>

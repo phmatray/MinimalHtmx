@@ -1,0 +1,31 @@
+@using StaticWebApp.Store
+@inject AppState AppState
+
+<form hx-put="@($"/htmx/contact/{Id}")" hx-target="this" hx-swap="outerHTML">
+  <AntiforgeryToken />
+  <input type="hidden" name="id" value="@Id" />
+  
+  <div>
+    <label>First Name</label>
+    <input type="text" name="firstName" value="@Contact.FirstName">
+  </div>
+  <div class="form-group">
+    <label>Last Name</label>
+    <input type="text" name="lastName" value="@Contact.LastName">
+  </div>
+  <div class="form-group">
+    <label>Email Address</label>
+    <input type="email" name="email" value="@Contact.Email">
+  </div>
+  <button class="btn btn-primary">Submit</button>
+  <button class="btn btn-primary" hx-get="@($"/htmx/contact/{Id}")">Cancel</button>
+</form>
+
+@code {
+
+  [Parameter]
+  public int Id { get; set; }
+
+  private Person Contact
+    => AppState.Contacts[Id];
+}

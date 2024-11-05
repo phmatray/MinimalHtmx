@@ -1,7 +1,6 @@
-using System.Reflection;
-using StaticWebApp;
+using Carter;
 using StaticWebApp.Components;
-using StaticWebApp.Components.Htmx;
+using StaticWebApp.Store;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,7 +8,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents();
 
 // Add Htmx services
-builder.Services.AddSingleton<HxCounterState>();
+builder.Services.AddSingleton<AppState>();
+builder.Services.AddCarter();
 
 var app = builder.Build();
 
@@ -27,17 +27,6 @@ app.UseStaticFiles();
 app.UseAntiforgery();
 
 app.MapRazorComponents<App>();
-// app.MapHtmxEndpoints();
-
-// Map Htmx components
-// Scan for all components that implement IHasEndpoints and map their endpoints
-Assembly.GetExecutingAssembly()
-    .GetTypes()
-    .Where(t => t is { IsClass: true, IsAbstract: false } && typeof(IHasEndpoints).IsAssignableFrom(t))
-    .Select(t => t.GetMethod("MapEndpoints", BindingFlags.Public | BindingFlags.Static))
-    .Where(m => m != null)
-    .Cast<MethodInfo>()
-    .ToList()
-    .ForEach(m => m.Invoke(null, [app]));
+app.MapCarter();
 
 app.Run();

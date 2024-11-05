@@ -1,0 +1,23 @@
+@page "/contact/{Id:int}"
+@using StaticWebApp.Store
+@inject AppState AppState
+
+<div hx-target="this" hx-swap="outerHTML">
+  <div><label>First Name</label>: @Contact.FirstName</div>
+  <div><label>Last Name</label>: @Contact.LastName</div>
+  <div><label>Email</label>: @Contact.Email</div>
+  <button hx-get="@($"/htmx/contact/{Id}/edit")" class="btn btn-primary">
+    Click To Edit
+  </button>
+</div>
+
+@code{
+
+  [Parameter]
+  [SupplyParameterFromQuery]
+  public int Id { get; set; }
+
+  private Person Contact
+    => AppState.Contacts[Id];
+  
+}
