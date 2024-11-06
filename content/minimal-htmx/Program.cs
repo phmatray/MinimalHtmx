@@ -1,6 +1,6 @@
 using Carter;
-using StaticWebApp.Components;
-using StaticWebApp.Store;
+using MinimalHtmxProject.Components;
+using MinimalHtmxProject.Store;
 
 var builder = WebApplication.CreateBuilder(args);
 

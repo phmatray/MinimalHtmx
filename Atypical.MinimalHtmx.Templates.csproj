@@ -1,0 +1,45 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <PackageId>Atypical.MinimalHtmx.Templates</PackageId>
+    <PackageVersion>1.0.0</PackageVersion>
+    <Title>Atypical Blazor and HTMX Template</Title>
+    <Authors>Philippe Matray</Authors>
+    <Description>A minimal .NET template for creating HTMX-based Blazor projects with Carter routing support.</Description>
+    <Copyright>Copyright 2024 Atypical Consulting SRL</Copyright>
+    <RepositoryUrl>https://github.com/phmatray/MinimalHtmx.git</RepositoryUrl>
+    <PackageTags>blazor;htmx;C#;dotnet;template;atypical</PackageTags>
+    <PackageProjectUrl>https://www.atypical.consulting</PackageProjectUrl>
+    
+    <PackageType>Template</PackageType>
+    <TargetFramework>net8.0</TargetFramework>
+    <IncludeContentInPack>true</IncludeContentInPack>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <ContentTargetFolders>content</ContentTargetFolders>
+    <NoWarn>$(NoWarn);NU5128</NoWarn>
+    <NoDefaultExcludes>true</NoDefaultExcludes>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageIcon>logo.png</PackageIcon>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <LocalizeTemplates>false</LocalizeTemplates>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.TemplateEngine.Tasks" Version="*" PrivateAssets="all" IsImplicitlyDefined="true"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="content\**\*" Exclude="content\**\bin\**;content\**\obj\**" />
+    <Compile Remove="**\*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="" />
+    <None Include="LICENSE" Pack="true" PackagePath=""/>
+    <None Include="logo.png" Pack="true" PackagePath=""/>
+  </ItemGroup>
+
+</Project>

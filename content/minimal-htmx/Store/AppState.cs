@@ -1,4 +1,4 @@
-namespace StaticWebApp.Store;
+namespace MinimalHtmxProject.Store;
 
 public sealed class AppState
 {

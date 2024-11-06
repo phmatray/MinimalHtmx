@@ -1,9 +1,9 @@
 using Carter;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Http.HttpResults;
-using StaticWebApp.Store;
+using MinimalHtmxProject.Store;
 
-namespace StaticWebApp.Components.Pages.Counter;
+namespace MinimalHtmxProject.Components.Pages.Counter;
 
 public partial class PageCounter
     : ComponentBase, ICarterModule

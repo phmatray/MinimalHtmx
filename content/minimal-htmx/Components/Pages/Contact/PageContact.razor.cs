@@ -2,9 +2,9 @@ using Carter;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
-using StaticWebApp.Store;
+using MinimalHtmxProject.Store;
 
-namespace StaticWebApp.Components.Pages.Contact;
+namespace MinimalHtmxProject.Components.Pages.Contact;
 
 public partial class PageContact
     : ComponentBase, ICarterModule

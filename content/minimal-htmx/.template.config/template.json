@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Philippe Matray",
+  "classifications": [
+    "Common",
+    "Web",
+    "Blazor",
+    "HTMX",
+    "v1.0.0"
+  ],
+  "groupIdentity": "Atypical.MinimalHtmx",
+  "identity": "Atypical.MinimalHtmx.CSharp",
+  "name": "Minimal HTMX Blazor Template",
+  "description": "Creates a new Blazor project with HTMX integration and Carter routing support.",
+  "shortName": "minimalhtmx",
+  "defaultName": "MinimalHtmxProject",
+  "sourceName": "MinimalHtmxProject",
+  "preferNameDirectory": true,
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  }
+}
