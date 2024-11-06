@@ -6,7 +6,8 @@ using StaticWebApp.Store;
 
 namespace StaticWebApp.Components.Pages.Contact;
 
-public partial class HxContact : ComponentBase, ICarterModule
+public partial class PageContact
+    : ComponentBase, ICarterModule
 {
     public void AddRoutes(IEndpointRouteBuilder app)
     {
@@ -21,18 +22,20 @@ public partial class HxContact : ComponentBase, ICarterModule
     private IResult HandlePut(AppState state, [FromForm] Person person)
     {
         state.Contacts[person.Id] = person;
-        return new RazorComponentResult<HxContact>(new { person.Id });
+        return new RazorComponentResult<HxContact>(new { Contact = person });
     }
     
     private IResult HandleGet(AppState state, int id)
     {
         return state.Contacts.TryGetValue(id, out var person)
-            ? new RazorComponentResult<HxContact>(new { person.Id })
+            ? new RazorComponentResult<HxContact>(new { Contact = person })
             : Results.NotFound();
     }
     
-    private IResult HandleGetEdit(int id)
+    private IResult HandleGetEdit(AppState state, int id)
     {
-        return new RazorComponentResult<HxContactEdit>(new { Id = id });
+        return state.Contacts.TryGetValue(id, out var person)
+            ? new RazorComponentResult<HxContactEdit>(new { Contact = person })
+            : Results.NotFound();
     }
 }

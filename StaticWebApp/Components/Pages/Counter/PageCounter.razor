@@ -1,0 +1,9 @@
+@page "/counter"
+@using StaticWebApp.Store
+@inject AppState AppState
+
+<h1>Counter</h1>
+
+<p>This component demonstrates a simple counter.</p>
+
+<HxCounter Count="@AppState.Count"/>

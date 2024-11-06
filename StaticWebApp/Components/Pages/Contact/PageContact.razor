@@ -1,0 +1,19 @@
+@page "/contact/{Id:int}"
+@inject AppState AppState
+
+<h1>Contact</h1>
+
+<p>This component displays an editable contact.</p>
+
+<HxContact Contact="@Contact"/>
+
+@code {
+
+  [Parameter]
+  [SupplyParameterFromQuery]
+  public int Id { get; set; }
+
+  private Person Contact
+    => AppState.Contacts[Id];
+  
+}
