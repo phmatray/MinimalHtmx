@@ -1,3 +1,6 @@
+> [!IMPORTANT]
+> **This repository has moved.** The code now lives in **[Atypical-Consulting/htmx-samples](https://github.com/Atypical-Consulting/htmx-samples)** under [`minimal-template`](https://github.com/Atypical-Consulting/htmx-samples/tree/main/minimal-template) — full git history preserved. This repository is archived (read-only).
+
 ![MinimalHtmx banner](.github/banner.png)
 
 # MinimalHtmx Template 📦🚀
